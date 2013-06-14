@@ -1,0 +1,19 @@
+/media/linux_data/data/project/AIwork/bin/AIwork.ap_ \
+ : /media/linux_data/data/project/AIwork/res/values/strings.xml \
+/media/linux_data/data/project/AIwork/res/drawable-xhdpi/ic_launcher.png \
+/media/linux_data/data/project/AIwork/res/drawable-ldpi/ic_launcher.png \
+/media/linux_data/data/project/AIwork/res/layout/listitem_discuss.xml \
+/media/linux_data/data/project/AIwork/res/layout/main.xml \
+/media/linux_data/data/project/AIwork/res/layout/activity_discuss.xml \
+/media/linux_data/data/project/AIwork/res/drawable-mdpi/ic_launcher.png \
+/media/linux_data/data/project/AIwork/res/drawable-hdpi/ic_launcher.png \
+/media/linux_data/data/project/AIwork/res/drawable/bubble_green.9.png \
+/media/linux_data/data/project/AIwork/res/drawable/myim.jpg \
+/media/linux_data/data/project/AIwork/res/drawable/bubble_yellow.9.png \
+/media/linux_data/data/project/AIwork/bin/res/drawable-xhdpi/ic_launcher.png \
+/media/linux_data/data/project/AIwork/bin/res/drawable-ldpi/ic_launcher.png \
+/media/linux_data/data/project/AIwork/bin/res/drawable-mdpi/ic_launcher.png \
+/media/linux_data/data/project/AIwork/bin/res/drawable-hdpi/ic_launcher.png \
+/media/linux_data/data/project/AIwork/bin/res/drawable/bubble_green.9.png \
+/media/linux_data/data/project/AIwork/bin/res/drawable/bubble_yellow.9.png \
+/media/linux_data/data/project/AIwork/bin/AndroidManifest.xml \

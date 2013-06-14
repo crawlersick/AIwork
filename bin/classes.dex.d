@@ -1,0 +1,20 @@
+/media/linux_data/data/project/AIwork/bin/classes.dex : \
+/media/linux_data/data/project/AIwork/bin/classes/com/AIwork/R$id.class \
+/media/linux_data/data/project/AIwork/bin/classes/com/AIwork/DiscussArrayAdapter.class \
+/media/linux_data/data/project/AIwork/bin/classes/com/AIwork/MainActivity$3.class \
+/media/linux_data/data/project/AIwork/bin/classes/com/AIwork/MainActivity$4.class \
+/media/linux_data/data/project/AIwork/bin/classes/com/AIwork/Views/ChatViewImpl.class \
+/media/linux_data/data/project/AIwork/bin/classes/com/AIwork/OneComment.class \
+/media/linux_data/data/project/AIwork/bin/classes/com/AIwork/R$drawable.class \
+/media/linux_data/data/project/AIwork/bin/classes/com/AIwork/MainActivity$2.class \
+/media/linux_data/data/project/AIwork/bin/classes/com/AIwork/TextDrawable.class \
+/media/linux_data/data/project/AIwork/bin/classes/com/AIwork/MainActivity$1.class \
+/media/linux_data/data/project/AIwork/bin/classes/com/AIwork/R$layout.class \
+/media/linux_data/data/project/AIwork/bin/classes/com/AIwork/CustomDrawableView.class \
+/media/linux_data/data/project/AIwork/bin/classes/com/AIwork/MainActivity.class \
+/media/linux_data/data/project/AIwork/bin/classes/com/AIwork/Anastr.class \
+/media/linux_data/data/project/AIwork/bin/classes/com/AIwork/MainActivity$5.class \
+/media/linux_data/data/project/AIwork/bin/classes/com/AIwork/R$string.class \
+/media/linux_data/data/project/AIwork/bin/classes/com/AIwork/BuildConfig.class \
+/media/linux_data/data/project/AIwork/bin/classes/com/AIwork/R.class \
+/media/linux_data/data/project/AIwork/bin/classes/com/AIwork/R$attr.class \
