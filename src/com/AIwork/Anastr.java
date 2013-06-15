@@ -12,7 +12,7 @@ import android.widget.ListView;
  *
  * @author sick
  */
-public class Anastr extends Thread{
+public class  Anastr extends Thread{
     
     private Handler myHandler ;
           Message message;
