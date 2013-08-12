@@ -5,25 +5,23 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
-import android.view.View;
+import android.util.Log;
+import android.view.*;
 import android.view.View.OnFocusChangeListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TableLayout;
-import android.widget.Toast;
+import android.widget.*;
 import com.AIwork.Views.ChatViewImpl;
+
+import java.io.File;
 
 public class MainActivity extends Activity
 {
+    public final static String EXTRA_MESSAGE = "MESSAGETXT";
      // LinearLayout mLinearLayout;
       TableLayout mLinearLayout;
        CustomDrawableView mCustomDrawableView;
@@ -88,7 +86,7 @@ public class MainActivity extends Activity
 					editText1.setText("");
                                         lv.setSelection(lv.getCount() - 1);
                                         // set the msg to new thread for further handle
-                                        Anastr ast=new Anastr(myHandler);
+                                        Anastr ast=new Anastr(myHandler,tempstr);
                                         ast.start();
                                         
 					return true;
@@ -97,7 +95,72 @@ public class MainActivity extends Activity
 			}
 		});
     }
-       
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        // Create the text view
+        TextView textView = new TextView(this);
+        textView.setTextSize(10);
+        String tempstr="";
+        switch (item.getItemId()) {
+            case R.id.Open_TXT:
+
+                Intent intentA = new Intent(this,com.AIwork.debby.MyFileManager.class);
+                startActivityForResult(intentA, 1);
+
+
+
+              //  Intent intent = new Intent(this, ProcessTextActivity.class);
+              //  String message = "Hi,John";
+             //   intent.putExtra(EXTRA_MESSAGE, message);
+             //   startActivity(intent);
+
+
+                //tempstr = "you select txt";
+               // textView.setText(tempstr);
+                //setContentView(textView);
+                return true;
+            case R.id.Open_MP3:
+                tempstr = "you select MP3";
+                textView.setText(tempstr);
+                setContentView(textView);
+                return true;
+            case R.id.Open_Pic:
+                tempstr = "you select PIC";
+                textView.setText(tempstr);
+                setContentView(textView);
+                return true;
+            default:
+
+
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(1 == requestCode){
+            Bundle bundle = null;
+            if(data!=null&&(bundle=data.getExtras())!=null){
+
+                //Toast.makeText(this,"选择文件夹为：" + bundle.getString("file"),  Toast.LENGTH_SHORT).show();
+                  Intent intent = new Intent(this, ProcessTextActivity.class);
+                  String message = bundle.getString("file");
+                  intent.putExtra(EXTRA_MESSAGE, message);
+                  startActivity(intent);
+            }
+        }
+    }
+
+
+
        
            // @Override
     public void onCreate_firstver(Bundle savedInstanceState)
@@ -130,5 +193,12 @@ mLinearLayout.invalidate();
            
         }
     };
+
+
+
+
+
+
+
 
 }

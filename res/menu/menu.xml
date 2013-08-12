@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/Open_TXT"
+          android:title="@string/openTXT" />
+    <item android:id="@+id/Open_MP3"
+          android:title="@string/openMP3" />
+    <item android:id="@+id/Open_Pic"
+          android:title="@string/openPIC" />
+</menu>

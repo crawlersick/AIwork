@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AIWork</string>
+    <string name="openTXT">TXT reader</string>
+    <string name="openMP3">MP3 player</string>
+    <string name="openPIC">Manga</string>
+    <string name="read_txt">TxT P</string>
 </resources>
