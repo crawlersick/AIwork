@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
@@ -23,6 +24,10 @@ public class ProcessTextActivity extends Activity{
     String filecode="";
     int filetype=0;
     String message;
+    int MaxPage=65535;
+    int PageChars[]=new int[MaxPage];
+    int CurrentPage=-1;
+    String PageC[]=new String[MaxPage];
     @SuppressLint("NewApi")
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -60,6 +65,25 @@ public class ProcessTextActivity extends Activity{
        // int lineCount = textView.getLineCount();
       //  Toast.makeText(this, "test num：" + width + " " + height, Toast.LENGTH_SHORT).show();
 
+        View.OnTouchListener onc=new View.OnTouchListener(){
+
+            public boolean onTouch(View v, MotionEvent event) {
+
+                int x =(int) event.getX();
+                int y=(int) event.getY();
+                Toast.makeText(v.getContext(),String.valueOf(x)+"     "+String.valueOf(y), Toast.LENGTH_SHORT).show();
+               // mCustomDrawableView.changetext("HAHAHAHA");
+               // mLinearLayout.invalidate();
+                if (CurrentPage<MaxPage)
+                {CurrentPage++;
+
+                textView.setText(PageC[CurrentPage]);
+                textView.invalidate();}
+                return false;
+
+            }
+        };
+        textView.setOnTouchListener(onc);
 
 
 
@@ -71,9 +95,36 @@ public class ProcessTextActivity extends Activity{
       //  int lineCount = textView.getLineCount();
        // Toast.makeText(this, "test num：" + lineCount, Toast.LENGTH_SHORT).show();
     }
+    @SuppressLint("NewApi")
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (this.hasWindowFocus()){
+           if(CurrentPage==-1)
+            {initPageSet();}
+            /*do what to do load page*/
+
+/*
+
+            int lineCount = textView.getHeight()/textView.getLineHeight();
+            //int charcount=textView
+            String fullString="告歌广告费吞吞吐吐天" ;
+            textView.setText(fullString);
+            int totalCharstoFit= textView.getPaint().breakText(fullString,  0, fullString.length(),
+                    true, textView.getWidth(), null);
+
+            Toast.makeText(this, "test num：" + lineCount+" || " + totalCharstoFit, Toast.LENGTH_SHORT).show();
+*/
+            CurrentPage++;
+            textView.setText(PageC[CurrentPage]);
+        //    Toast.makeText(this, "test num：" + MaxPage+"---------"+PageChars[0], Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void initPageSet(){
+        int lineCount = textView.getHeight()/textView.getLineHeight()-2;
         StringBuffer sBuffer = new StringBuffer();
+        int totalCharstoFit;
         try {
             FileInputStream fInputStream = new FileInputStream(txtfile);
             InputStreamReader inputStreamReader;
@@ -84,34 +135,64 @@ public class ProcessTextActivity extends Activity{
 
             BufferedReader in = new BufferedReader(inputStreamReader);
             String strTmp=null;
-
+            int TempPageChars=0;
+            int TempPageLines=0;
+            int TempPagenum=0;
+            PageC[0]="";
+            boolean finishedFlag=false;
+            String LineTail="";
             while (( strTmp = in.readLine()) != null) {
-                sBuffer.append(strTmp + "\n");
+                strTmp=LineTail+strTmp;
+                for(;;){
+                    finishedFlag=false;
+                totalCharstoFit= textView.getPaint().breakText(strTmp,  0, strTmp.length(),
+                        true, textView.getWidth(), null);
+                if (totalCharstoFit < strTmp.length())
+                {
+                    TempPageLines++;
+                    TempPageChars+=totalCharstoFit;
+
+                    PageC[TempPagenum]=PageC[TempPagenum]+strTmp.substring(0,totalCharstoFit);
+
+                    strTmp=strTmp.substring(totalCharstoFit,strTmp.length());
+
+                }
+                else
+                {
+                    TempPageLines++;
+                    TempPageChars+=strTmp.length();
+
+                    PageC[TempPagenum]=PageC[TempPagenum]+strTmp+"\n";
+
+
+                    strTmp="";
+                    finishedFlag=true;
+
+                }
+                if (TempPageLines==lineCount)
+                {
+                    PageChars[TempPagenum]=TempPageChars;
+                    TempPagenum++;
+                    TempPageChars=0;
+                    TempPageLines=0;
+                    PageC[TempPagenum]="";
+                }
+                if (finishedFlag)
+                    {
+                        break;
+                    }
+
+                }
+                LineTail=strTmp;
+
+                //sBuffer.append(strTmp + "\n");
                 //  break;
             }
+            MaxPage=TempPagenum;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        textView.setText(message + "\n" + "code is : " + filecode + "\n" + "\n" + sBuffer.toString());
 
-        if (this.hasWindowFocus()){
-
-        super.onWindowFocusChanged(hasFocus);
-          int lineCount = textView.getHeight()/textView.getLineHeight();
-          //int charcount=textView
-        String fullString="--------------------------------------------------------------------------------------------------" +
-                "--------------------------------------------------------------------------------------------------" +
-                "--------------------------------------------------------------------------------------------------" +
-                "--------------------------------------------------------------------------------------------------";
-
-        int totalCharstoFit= textView.getPaint().breakText(fullString,  0, fullString.length(),
-                true, textView.getWidth(), null);
-
-         Toast.makeText(this, "test num：" + lineCount+" || " + totalCharstoFit, Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void FillInOnePage(){
 
     }
 
