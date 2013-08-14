@@ -3,6 +3,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
@@ -58,8 +59,13 @@ public class ProcessTextActivity extends Activity{
         //textView.getPaint().setSubpixelText(true);
        // setContentView(textView);
 
-        setContentView(R.layout.txt_reader);
-        textView = (ReadView) findViewById(R.id.txtRead_view);
+
+
+        //textView = (ReadView) findViewById(R.id.txtRead_view);
+       // setContentView(R.layout.txt_reader);
+        textView = new ReadView(this);
+                setContentView(textView);
+
 
 /*
         try {
@@ -79,12 +85,25 @@ public class ProcessTextActivity extends Activity{
 
                 int x =(int) event.getX();
                 int y=(int) event.getY();
-                Toast.makeText(v.getContext(),String.valueOf(x)+"     "+String.valueOf(y), Toast.LENGTH_SHORT).show();
-                if (CurrentPage<MaxPage)
-                {CurrentPage++;
+                int totolx=textView.getWidth();
+                int totaly=textView.getHeight();
 
+
+
+                if(x<totolx/2 && CurrentPage<MaxPage-1)
+                {
+                CurrentPage++;
+                }
+                else if(x>=totolx/2 && CurrentPage>0)
+                {
+                        CurrentPage--;
+                }
+
+                Toast.makeText(v.getContext(),String.valueOf(x)+"     "+String.valueOf(y)+" | "+String.valueOf(totolx)+"     "+String.valueOf(totaly)+"page num: "+CurrentPage+","+MaxPage, Toast.LENGTH_SHORT).show();
                 textView.setText(PageC[CurrentPage]);
-                textView.invalidate();}
+                textView.invalidate();
+
+
                 return false;
 
             }
@@ -110,9 +129,14 @@ public class ProcessTextActivity extends Activity{
         super.onWindowFocusChanged(hasFocus);
         if (this.hasWindowFocus()){
            if(CurrentPage==-1)
-            {initPageSet();}
-            CurrentPage++;
-            textView.setText(PageC[CurrentPage]);
+            {
+                initPageSet();CurrentPage++;
+                Toast.makeText(textView.getContext(),"init finished", Toast.LENGTH_SHORT).show();
+                textView.setText(PageC[CurrentPage]);
+            }
+
+
+           // textView.setText(PageC[CurrentPage]);
         }
     }
 
@@ -131,7 +155,7 @@ public class ProcessTextActivity extends Activity{
 
             BufferedReader in = new BufferedReader(inputStreamReader);
             String strTmp=null;
-            int TempPageChars=0;
+            int TempPageChars=4096;
             int TolPageChars=0;
             int TempPageLines=0;
             int TempPagenum=0;
@@ -145,24 +169,62 @@ public class ProcessTextActivity extends Activity{
             int startpos=0;
             int nextstartpos=0;
             int endpos=4096;
-            while (( readn = in.read(tempmem,startpos,endpos)) != -1) {
+            while (( readn = in.read(tempmem,startpos,TempPageChars)) != -1) {
+                Log.d("readin chars:", Integer.toString(readn));
               //  strTmp=LineTail+strTmp;
                 textView.setText(tempmem,0,endpos);
                 TempPageChars=textView.getCharNum();
+
+
+                Log.d("page calculate chars:", Integer.toString(TempPageChars));
+
+
                 PageC[TempPagenum]=new String(tempmem,0,TempPageChars);
                 nextstartpos=endpos-TempPageChars;
-                for(int i =0;i<nextstartpos;i++)
+
+
+
+                for(int i =0;i<endpos-TempPageChars;i++)
                 {
-                    tempmem[i]=tempmem[i+endpos-TempPageChars];
+                    tempmem[i]=tempmem[i+TempPageChars];
 
                 }
                 startpos=nextstartpos;
+
+                      if (readn!=TempPageChars&&readn!=endpos)
+                          startpos=endpos-TempPageChars-PageC[TempPagenum-1].length()+readn;
+
                 TempPagenum++;
                 prereadn=readn;
                 if(TempPagenum>=65534)
                     break;
             }
 
+           // in.read(tempmem,0,endpos);
+           // Log.d("222111 page calculate chars:", Integer.toString(startpos)+"  "+Integer.toString(TempPageChars));
+           // Log.d("222111",new String(tempmem,startpos,TempPageChars));
+
+            prereadn=0;
+            while (true)
+            {
+                if(prereadn>=startpos)
+                    break;
+
+                textView.setText(tempmem,prereadn,startpos-prereadn);
+
+                TempPageChars=textView.getCharNum();
+                Log.d("222111 page calculate chars:", Integer.toString(TempPageChars));
+                Log.d("222111 page startpos:", Integer.toString(startpos));
+                PageC[TempPagenum]=new String(tempmem,prereadn,TempPageChars);
+
+                prereadn+=TempPageChars;
+                TempPagenum++;
+
+            }
+
+
+
+/*
             startpos=0;
             while(startpos<prereadn){
                 textView.setText(tempmem,startpos,prereadn);
@@ -175,7 +237,7 @@ public class ProcessTextActivity extends Activity{
                 if(TempPagenum>=65534)
                     break;
             }
-
+*/
 
 
             MaxPage=TempPagenum;
