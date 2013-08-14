@@ -24,5 +24,10 @@
             </activity>
             <activity  android:name="com.AIwork.debby.MyFileManager" android:theme="@android:style/Theme.Dialog">
             </activity>
+        <activity
+            android:name="ProcessTest"
+            android:label="@string/read_txt"
+            android:parentActivityName="MainActivity" >
+        </activity>
     </application>
 </manifest>

@@ -2,28 +2,28 @@ package com.AIwork;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Paint;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewTreeObserver;
-import android.widget.FrameLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.*;
+import java.nio.CharBuffer;
 
 /**
  * Created by sick on 8/6/13.
  */
 
 public class ProcessTextActivity extends Activity{
-    private TextView textView;
+    ReadView textView;
+   // private TextView textView;
     private File txtfile;
+    BufferedReader reader;
     String filecode="";
     int filetype=0;
     String message;
+    String finalcode;
+    CharBuffer buffer = CharBuffer.allocate(8000);
     int MaxPage=65535;
     int PageChars[]=new int[MaxPage];
     int CurrentPage=-1;
@@ -47,23 +47,31 @@ public class ProcessTextActivity extends Activity{
         }
 
 
+        if (filetype==1)
+            finalcode = filecode;
+        else
+            finalcode =  "GBK";
+
+
         txtfile=new File(message);
+        //textView = new TextView(this);
+        //textView.getPaint().setSubpixelText(true);
+       // setContentView(textView);
 
+        setContentView(R.layout.txt_reader);
+        textView = (ReadView) findViewById(R.id.txtRead_view);
 
-        textView = new TextView(this);
-       // ReadView textView = (ReadView) findViewById(R.id.read_view);
-       // textView.setMaxLines(20);
-        //textView.setTextSize(10);
-        setContentView(textView);
+/*
+        try {
+            txtfile=new File(message);
+            FileInputStream in = new FileInputStream(txtfile);
 
-
-
-       // textView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-       // int width = textView.getMeasuredWidth();
-       // int height = textView.getMeasuredHeight();
-
-       // int lineCount = textView.getLineCount();
-      //  Toast.makeText(this, "test num：" + width + " " + height, Toast.LENGTH_SHORT).show();
+            reader = new BufferedReader(new InputStreamReader(in, finalcode));
+            reader.read(buffer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+*/
 
         View.OnTouchListener onc=new View.OnTouchListener(){
 
@@ -72,8 +80,6 @@ public class ProcessTextActivity extends Activity{
                 int x =(int) event.getX();
                 int y=(int) event.getY();
                 Toast.makeText(v.getContext(),String.valueOf(x)+"     "+String.valueOf(y), Toast.LENGTH_SHORT).show();
-               // mCustomDrawableView.changetext("HAHAHAHA");
-               // mLinearLayout.invalidate();
                 if (CurrentPage<MaxPage)
                 {CurrentPage++;
 
@@ -85,7 +91,10 @@ public class ProcessTextActivity extends Activity{
         };
         textView.setOnTouchListener(onc);
 
-
+       // initPageSet();
+     //   CurrentPage=0;
+      //  textView.setText(PageC[CurrentPage]);
+      //  textView.invalidate();
 
     }
 
@@ -102,27 +111,14 @@ public class ProcessTextActivity extends Activity{
         if (this.hasWindowFocus()){
            if(CurrentPage==-1)
             {initPageSet();}
-            /*do what to do load page*/
-
-/*
-
-            int lineCount = textView.getHeight()/textView.getLineHeight();
-            //int charcount=textView
-            String fullString="告歌广告费吞吞吐吐天" ;
-            textView.setText(fullString);
-            int totalCharstoFit= textView.getPaint().breakText(fullString,  0, fullString.length(),
-                    true, textView.getWidth(), null);
-
-            Toast.makeText(this, "test num：" + lineCount+" || " + totalCharstoFit, Toast.LENGTH_SHORT).show();
-*/
             CurrentPage++;
             textView.setText(PageC[CurrentPage]);
-        //    Toast.makeText(this, "test num：" + MaxPage+"---------"+PageChars[0], Toast.LENGTH_SHORT).show();
         }
     }
 
     public void initPageSet(){
-        int lineCount = textView.getHeight()/textView.getLineHeight()-2;
+
+        int lineCount = textView.getHeight()/textView.getLineHeight();
         StringBuffer sBuffer = new StringBuffer();
         int totalCharstoFit;
         try {
@@ -136,58 +132,52 @@ public class ProcessTextActivity extends Activity{
             BufferedReader in = new BufferedReader(inputStreamReader);
             String strTmp=null;
             int TempPageChars=0;
+            int TolPageChars=0;
             int TempPageLines=0;
             int TempPagenum=0;
             PageC[0]="";
             boolean finishedFlag=false;
-            String LineTail="";
-            while (( strTmp = in.readLine()) != null) {
-                strTmp=LineTail+strTmp;
-                for(;;){
-                    finishedFlag=false;
-                totalCharstoFit= textView.getPaint().breakText(strTmp,  0, strTmp.length(),
-                        true, textView.getWidth(), null);
-                if (totalCharstoFit < strTmp.length())
+          //  String LineTail="";
+            char tempmem[]=new char[4096];
+            char tempreadin[]=new char[2048];
+            int readn;
+            int prereadn=0;
+            int startpos=0;
+            int nextstartpos=0;
+            int endpos=4096;
+            while (( readn = in.read(tempmem,startpos,endpos)) != -1) {
+              //  strTmp=LineTail+strTmp;
+                textView.setText(tempmem,0,endpos);
+                TempPageChars=textView.getCharNum();
+                PageC[TempPagenum]=new String(tempmem,0,TempPageChars);
+                nextstartpos=endpos-TempPageChars;
+                for(int i =0;i<nextstartpos;i++)
                 {
-                    TempPageLines++;
-                    TempPageChars+=totalCharstoFit;
-
-                    PageC[TempPagenum]=PageC[TempPagenum]+strTmp.substring(0,totalCharstoFit);
-
-                    strTmp=strTmp.substring(totalCharstoFit,strTmp.length());
+                    tempmem[i]=tempmem[i+endpos-TempPageChars];
 
                 }
-                else
-                {
-                    TempPageLines++;
-                    TempPageChars+=strTmp.length();
-
-                    PageC[TempPagenum]=PageC[TempPagenum]+strTmp+"\n";
-
-
-                    strTmp="";
-                    finishedFlag=true;
-
-                }
-                if (TempPageLines==lineCount)
-                {
-                    PageChars[TempPagenum]=TempPageChars;
-                    TempPagenum++;
-                    TempPageChars=0;
-                    TempPageLines=0;
-                    PageC[TempPagenum]="";
-                }
-                if (finishedFlag)
-                    {
-                        break;
-                    }
-
-                }
-                LineTail=strTmp;
-
-                //sBuffer.append(strTmp + "\n");
-                //  break;
+                startpos=nextstartpos;
+                TempPagenum++;
+                prereadn=readn;
+                if(TempPagenum>=65534)
+                    break;
             }
+
+            startpos=0;
+            while(startpos<prereadn){
+                textView.setText(tempmem,startpos,prereadn);
+                TempPageChars=textView.getCharNum();
+
+                PageC[TempPagenum]=new String(tempmem,startpos,TempPageChars);
+                startpos+=TempPageChars;
+
+                TempPagenum++;
+                if(TempPagenum>=65534)
+                    break;
+            }
+
+
+
             MaxPage=TempPagenum;
         } catch (Exception e) {
             e.printStackTrace();

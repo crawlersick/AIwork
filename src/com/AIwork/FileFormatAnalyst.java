@@ -29,6 +29,10 @@ public class FileFormatAnalyst {
                 code = "UTF-8";
                 filetype=1;
                 break;
+            case 0x4e6f:
+                code = "UTF-8";
+                filetype=1;
+                break;
             case 0xfffe:
                 code = "Unicode";
                 filetype=1;

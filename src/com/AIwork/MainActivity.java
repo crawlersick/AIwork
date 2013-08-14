@@ -152,6 +152,7 @@ public class MainActivity extends Activity
 
                 //Toast.makeText(this,"选择文件夹为：" + bundle.getString("file"),  Toast.LENGTH_SHORT).show();
                   Intent intent = new Intent(this, ProcessTextActivity.class);
+              //  Intent intent = new Intent(this, ProcessTest.class);
                   String message = bundle.getString("file");
                   intent.putExtra(EXTRA_MESSAGE, message);
                   startActivity(intent);
