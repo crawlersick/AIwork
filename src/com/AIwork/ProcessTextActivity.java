@@ -24,9 +24,9 @@ public class ProcessTextActivity extends Activity{
     int filetype=0;
     String message;
     String finalcode;
-    CharBuffer buffer = CharBuffer.allocate(8000);
+   // CharBuffer buffer = CharBuffer.allocate(8000);
     int MaxPage=65535;
-    int PageChars[]=new int[MaxPage];
+   // int PageChars[]=new int[MaxPage];
     int CurrentPage=-1;
     String PageC[]=new String[MaxPage];
     @SuppressLint("NewApi")
@@ -140,11 +140,14 @@ public class ProcessTextActivity extends Activity{
         }
     }
 
+
+    
+
     public void initPageSet(){
 
-        int lineCount = textView.getHeight()/textView.getLineHeight();
+       // int lineCount = textView.getHeight()/textView.getLineHeight();
         StringBuffer sBuffer = new StringBuffer();
-        int totalCharstoFit;
+       // int totalCharstoFit;
         try {
             FileInputStream fInputStream = new FileInputStream(txtfile);
             InputStreamReader inputStreamReader;
@@ -156,8 +159,8 @@ public class ProcessTextActivity extends Activity{
             BufferedReader in = new BufferedReader(inputStreamReader);
             String strTmp=null;
             int TempPageChars=4096;
-            int TolPageChars=0;
-            int TempPageLines=0;
+        //    int TolPageChars=0;
+        //    int TempPageLines=0;
             int TempPagenum=0;
             PageC[0]="";
             boolean finishedFlag=false;
@@ -165,9 +168,9 @@ public class ProcessTextActivity extends Activity{
             char tempmem[]=new char[4096];
             char tempreadin[]=new char[2048];
             int readn;
-            int prereadn=0;
+            int prereadn;
             int startpos=0;
-            int nextstartpos=0;
+            int nextstartpos;
             int endpos=4096;
             while (( readn = in.read(tempmem,startpos,TempPageChars)) != -1) {
                 Log.d("readin chars:", Integer.toString(readn));
@@ -195,7 +198,7 @@ public class ProcessTextActivity extends Activity{
                           startpos=endpos-TempPageChars-PageC[TempPagenum-1].length()+readn;
 
                 TempPagenum++;
-                prereadn=readn;
+       //         prereadn=readn;
                 if(TempPagenum>=65534)
                     break;
             }
@@ -221,23 +224,6 @@ public class ProcessTextActivity extends Activity{
                 TempPagenum++;
 
             }
-
-
-
-/*
-            startpos=0;
-            while(startpos<prereadn){
-                textView.setText(tempmem,startpos,prereadn);
-                TempPageChars=textView.getCharNum();
-
-                PageC[TempPagenum]=new String(tempmem,startpos,TempPageChars);
-                startpos+=TempPageChars;
-
-                TempPagenum++;
-                if(TempPagenum>=65534)
-                    break;
-            }
-*/
 
 
             MaxPage=TempPagenum;
