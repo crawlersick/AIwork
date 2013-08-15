@@ -99,7 +99,7 @@ public class ProcessTextActivity extends Activity{
                         CurrentPage--;
                 }
 
-                Toast.makeText(v.getContext(),String.valueOf(x)+"     "+String.valueOf(y)+" | "+String.valueOf(totolx)+"     "+String.valueOf(totaly)+"page num: "+CurrentPage+","+MaxPage, Toast.LENGTH_SHORT).show();
+               // Toast.makeText(v.getContext(),String.valueOf(x)+"     "+String.valueOf(y)+" | "+String.valueOf(totolx)+"     "+String.valueOf(totaly)+"page num: "+CurrentPage+","+MaxPage, Toast.LENGTH_SHORT).show();
                 textView.setText(PageC[CurrentPage]);
                 textView.invalidate();
 
@@ -141,7 +141,7 @@ public class ProcessTextActivity extends Activity{
     }
 
 
-    
+
 
     public void initPageSet(){
 

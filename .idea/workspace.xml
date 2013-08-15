@@ -15,7 +15,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8fba8b5a-c049-4ab6-8e24-1605a9543b7a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/AIwork/ProcessTextActivity.java" afterPath="$PROJECT_DIR$/src/com/AIwork/ProcessTextActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="AIwork.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -105,7 +104,7 @@
       <file leaf-file-name="ProcessTextActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/AIwork/ProcessTextActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="143" column="4" selection-start="3886" selection-end="3886" vertical-scroll-proportion="1.048387">
+            <state line="101" column="17" selection-start="2634" selection-end="2634" vertical-scroll-proportion="0.8467742">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -766,12 +765,12 @@
       <workItem from="1375978611407" duration="35585000" />
       <workItem from="1376267176666" duration="14393000" />
       <workItem from="1376401503056" duration="39875000" />
-      <workItem from="1376533491638" duration="1995000" />
+      <workItem from="1376533491638" duration="2285000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127656000" />
+    <option name="totallyTimeSpent" value="127946000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1000,7 +999,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/AIwork/ProcessTextActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="4" selection-start="3886" selection-end="3886" vertical-scroll-proportion="1.048387">
+        <state line="101" column="17" selection-start="2634" selection-end="2634" vertical-scroll-proportion="0.8467742">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
