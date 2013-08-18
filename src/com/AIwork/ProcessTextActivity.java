@@ -1,21 +1,28 @@
 package com.AIwork;
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
-
 import java.io.*;
+
+
+
+
+
 import java.nio.CharBuffer;
+
 
 /**
  * Created by sick on 8/6/13.
  */
 
-public class ProcessTextActivity extends Activity{
+public class ProcessTextActivity extends Activity {
     ReadView textView;
    // private TextView textView;
     private File txtfile;
@@ -34,6 +41,11 @@ public class ProcessTextActivity extends Activity{
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
+      // ActionBar actionBar = this.getActionBar();
+      // actionBar.hide();
+
+
         Intent intent = getIntent();
         message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
@@ -60,11 +72,11 @@ public class ProcessTextActivity extends Activity{
        // setContentView(textView);
 
 
+        setContentView(R.layout.txt_reader);
+        textView = (ReadView) findViewById(R.id.txtRead_view);
 
-        //textView = (ReadView) findViewById(R.id.txtRead_view);
-       // setContentView(R.layout.txt_reader);
-        textView = new ReadView(this);
-                setContentView(textView);
+      //  textView = new ReadView(this);
+        //        setContentView(textView);
 
 
 /*
@@ -108,7 +120,13 @@ public class ProcessTextActivity extends Activity{
 
             }
         };
-        textView.setOnTouchListener(onc);
+
+
+
+
+        //textView.setOnTouchListener(onc);
+        textView.setOnTouchListener(TextTouchListener);
+
 
        // initPageSet();
      //   CurrentPage=0;
@@ -235,4 +253,41 @@ public class ProcessTextActivity extends Activity{
     }
 
 
+    private View.OnTouchListener TextTouchListener = new View.OnTouchListener() {
+        public boolean onTouch(View v,MotionEvent e) {
+            // do something when the button is clicked
+
+            if (e.getAction()==e.ACTION_DOWN)
+            {
+            int x =(int) e.getX();
+            int y=(int) e.getY();
+            int totolx=textView.getWidth();
+            int totaly=textView.getHeight();
+
+
+
+            if(x<totolx/2 && CurrentPage<MaxPage-1)
+            {
+                CurrentPage++;
+            }
+            else if(x>=totolx/2 && CurrentPage>0)
+            {
+                CurrentPage--;
+            }
+
+            // Toast.makeText(v.getContext(),String.valueOf(x)+"     "+String.valueOf(y)+" | "+String.valueOf(totolx)+"     "+String.valueOf(totaly)+"page num: "+CurrentPage+","+MaxPage, Toast.LENGTH_SHORT).show();
+            textView.setText(PageC[CurrentPage]);
+            textView.invalidate();
+
+            return true;
+            }
+            return false;
+
+        }
+    };
+
+
+
 }
+
+
