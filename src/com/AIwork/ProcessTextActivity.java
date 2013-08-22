@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.widget.Toast;
 import java.io.*;
 
@@ -42,8 +43,7 @@ public class ProcessTextActivity extends Activity {
     {
         super.onCreate(savedInstanceState);
 
-      // ActionBar actionBar = this.getActionBar();
-      // actionBar.hide();
+
 
 
         Intent intent = getIntent();
@@ -71,8 +71,15 @@ public class ProcessTextActivity extends Activity {
         //textView.getPaint().setSubpixelText(true);
        // setContentView(textView);
 
+     /* sick's comment: to manage action bar necessary to add this ?*/
+        getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
 
         setContentView(R.layout.txt_reader);
+
+
+           ActionBar actionBar = this.getActionBar();
+           actionBar.hide();
+
         textView = (ReadView) findViewById(R.id.txtRead_view);
 
       //  textView = new ReadView(this);
@@ -148,9 +155,11 @@ public class ProcessTextActivity extends Activity {
         if (this.hasWindowFocus()){
            if(CurrentPage==-1)
             {
+
                 initPageSet();CurrentPage++;
                 Toast.makeText(textView.getContext(),"init finished", Toast.LENGTH_SHORT).show();
                 textView.setText(PageC[CurrentPage]);
+
             }
 
 

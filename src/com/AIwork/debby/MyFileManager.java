@@ -18,8 +18,8 @@ import com.AIwork.R;
 public class MyFileManager extends ListActivity {
     private List<String> items = null;
     private List<String> paths = null;
-    private String rootPath = "/sdcard";
-    private String curPath = "/sdcard";
+    private String rootPath = "/";
+    private String curPath = "/";
     private TextView mPath;
 
     private final static String TAG = "bb";
