@@ -22,6 +22,7 @@ import java.io.File;
 public class MainActivity extends Activity
 {
     public final static String EXTRA_MESSAGE = "MESSAGETXT";
+    Intent intentfortxtreader=null;
      // LinearLayout mLinearLayout;
       TableLayout mLinearLayout;
        CustomDrawableView mCustomDrawableView;
@@ -51,6 +52,13 @@ public class MainActivity extends Activity
     public void onCreate(Bundle savedInstanceState)
     {
     super.onCreate(savedInstanceState);
+        if (intentfortxtreader!=null){
+        finish();
+        startActivity(intentfortxtreader);
+        return;
+        }
+
+
     setContentView(R.layout.activity_discuss);
     lv = (ChatViewImpl) findViewById(R.id.listView1);
     adapter = new DiscussArrayAdapter(getApplicationContext(), R.layout.listitem_discuss);
@@ -151,11 +159,11 @@ public class MainActivity extends Activity
             if(data!=null&&(bundle=data.getExtras())!=null){
 
                 //Toast.makeText(this,"选择文件夹为：" + bundle.getString("file"),  Toast.LENGTH_SHORT).show();
-                  Intent intent = new Intent(this, ProcessTextActivity.class);
+                  intentfortxtreader = new Intent(this, ProcessTextActivity.class);
               //  Intent intent = new Intent(this, ProcessTest.class);
                   String message = bundle.getString("file");
-                  intent.putExtra(EXTRA_MESSAGE, message);
-                  startActivity(intent);
+                intentfortxtreader.putExtra(EXTRA_MESSAGE, message);
+                  startActivity(intentfortxtreader);
             }
         }
     }

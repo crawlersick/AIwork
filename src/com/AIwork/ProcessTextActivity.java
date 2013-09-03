@@ -24,6 +24,8 @@ import java.nio.CharBuffer;
  */
 
 public class ProcessTextActivity extends Activity {
+    static final String STATE_PAGEINX = "page index";
+    static final String STATE_ALLCON = "all content";
     ReadView textView;
    // private TextView textView;
     private File txtfile;
@@ -42,6 +44,14 @@ public class ProcessTextActivity extends Activity {
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
+
+        if (savedInstanceState != null) {
+            // Restore value of members from saved state
+            CurrentPage = savedInstanceState.getInt(STATE_PAGEINX);
+            PageC = savedInstanceState.getStringArray(STATE_ALLCON);
+            return;
+        }
 
 
 
@@ -168,6 +178,12 @@ public class ProcessTextActivity extends Activity {
     }
 
 
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState){
+        savedInstanceState.putStringArray(STATE_ALLCON,PageC);
+        savedInstanceState.putInt(STATE_PAGEINX,CurrentPage);
+        super.onSaveInstanceState(savedInstanceState);
+    }
 
 
     public void initPageSet(){

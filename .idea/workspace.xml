@@ -14,19 +14,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fba8b5a-c049-4ab6-8e24-1605a9543b7a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/fileselect.xml" afterPath="$PROJECT_DIR$/res/layout/fileselect.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/AIwork/MainActivity.java" afterPath="$PROJECT_DIR$/src/com/AIwork/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/AIwork/ProcessTextActivity.java" afterPath="$PROJECT_DIR$/src/com/AIwork/ProcessTextActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="AIwork.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="8fba8b5a-c049-4ab6-8e24-1605a9543b7a" time="1377619169429" ignored="false" />
+    <file path="/Dummy.txt" changelist="8fba8b5a-c049-4ab6-8e24-1605a9543b7a" time="1378224580628" ignored="false" />
     <file path="/Anastr.java" changelist="8fba8b5a-c049-4ab6-8e24-1605a9543b7a" time="1375633367188" ignored="false" />
     <file path="/a.xml" changelist="8fba8b5a-c049-4ab6-8e24-1605a9543b7a" time="1376128464284" ignored="false" />
     <file path="/menu.xml" changelist="8fba8b5a-c049-4ab6-8e24-1605a9543b7a" time="1375723706269" ignored="false" />
     <file path="/strings.xml" changelist="8fba8b5a-c049-4ab6-8e24-1605a9543b7a" time="1375728449674" ignored="false" />
-    <file path="/MainActivity.java" changelist="8fba8b5a-c049-4ab6-8e24-1605a9543b7a" time="1376410846403" ignored="false" />
+    <file path="/MainActivity.java" changelist="8fba8b5a-c049-4ab6-8e24-1605a9543b7a" time="1378227014034" ignored="false" />
     <file path="/fragment.java" changelist="8fba8b5a-c049-4ab6-8e24-1605a9543b7a" time="1376406924093" ignored="false" />
-    <file path="/ProcessTextActivity.java" changelist="8fba8b5a-c049-4ab6-8e24-1605a9543b7a" time="1377102061318" ignored="false" />
+    <file path="/ProcessTextActivity.java" changelist="8fba8b5a-c049-4ab6-8e24-1605a9543b7a" time="1378226598579" ignored="false" />
     <file path="/AndroidManifest.xml" changelist="8fba8b5a-c049-4ab6-8e24-1605a9543b7a" time="1376836450526" ignored="false" />
     <file path="$PROJECT_DIR$/../AndroidFileBrowser/src/ua/com/vassiliev/androidfilebrowser/FileBrowserActivity.java" changelist="8fba8b5a-c049-4ab6-8e24-1605a9543b7a" time="1375890841258" ignored="false" />
     <file path="$PROJECT_DIR$/../../TMP/android-filechooser/code/project.properties" changelist="8fba8b5a-c049-4ab6-8e24-1605a9543b7a" time="1375904060159" ignored="false" />
@@ -106,10 +107,17 @@
       <file leaf-file-name="ProcessTextActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/AIwork/ProcessTextActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="0" selection-start="2061" selection-end="2061" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="169" column="31" selection-start="4441" selection-end="4441" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/AIwork/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="59" column="0" selection-start="1782" selection-end="1782" vertical-scroll-proportion="0.6048387">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -117,19 +125,19 @@
       <file leaf-file-name="MyFileManager.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/AIwork/debby/MyFileManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="33" selection-start="868" selection-end="913" vertical-scroll-proportion="0.0">
+            <state line="43" column="8" selection-start="1422" selection-end="1422" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fileselect.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="fileselect.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/fileselect.xml">
           <provider editor-type-id="android-designer">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="16" selection-start="907" selection-end="907" vertical-scroll-proportion="0.75">
+            <state line="37" column="6" selection-start="852" selection-end="1052" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -171,22 +179,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProcessTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/AIwork/ProcessTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="13" selection-start="463" selection-end="463" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="txt_reader.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/txt_reader.xml">
           <provider editor-type-id="android-designer">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="37" selection-start="451" selection-end="462" vertical-scroll-proportion="-4.2">
+            <state line="7" column="37" selection-start="451" selection-end="462" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -227,14 +226,14 @@
         <option value="$PROJECT_DIR$/src/com/AIwork/FileFormatAnalyst.java" />
         <option value="$PROJECT_DIR$/res/layout/TXT_READER.xml" />
         <option value="$PROJECT_DIR$/src/com/AIwork/ProcessTest.java" />
-        <option value="$PROJECT_DIR$/src/com/AIwork/MainActivity.java" />
         <option value="$PROJECT_DIR$/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/res/layout/txt_reader.xml" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/com/AIwork/ProcessTextActivity.java" />
         <option value="$PROJECT_DIR$/src/com/AIwork/debby/MyFileManager.java" />
         <option value="$PROJECT_DIR$/res/layout/fileselect.xml" />
+        <option value="$PROJECT_DIR$/src/com/AIwork/ProcessTextActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/AIwork/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -325,6 +324,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -363,6 +363,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="AIwork" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AIwork" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AIwork" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AIwork" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -494,7 +516,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -510,18 +531,18 @@
     <property name="options.lastSelected" value="appearance" />
     <property name="last_opened_file_path" value="$APPLICATION_HOME_DIR$/sdk/extras/android/m2repository/com" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="DEBUGGABLE_DEVICE" value="emulator-5554 (tttttttttt)" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="DEBUGGABLE_PROCESS" value="com.AIwork" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
-    <property name="FullScreen" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="dynamic.classpath" value="false" />
     <property name="Downloaded.Files.Path" value="$PROJECT_DIR$/lib" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -746,12 +767,13 @@
       <workItem from="1376801778824" duration="16983000" />
       <workItem from="1377095551949" duration="1710000" />
       <workItem from="1377097289679" duration="3581000" />
-      <workItem from="1377619161458" duration="3649000" />
+      <workItem from="1377619161458" duration="4466000" />
+      <workItem from="1378224571743" duration="2788000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154596000" />
+    <option name="totallyTimeSpent" value="158201000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -777,10 +799,7 @@
     <frame x="-2" y="-3" width="1370" height="775" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.6534181" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.6534181" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990461" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32750398" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
@@ -795,7 +814,10 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18181819" sideWeight="0.6534181" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34658188" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.6534181" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.6534181" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -894,13 +916,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/AIwork/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="190" column="19" selection-start="7500" selection-end="7519" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/AIwork/ProcessTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="13" selection-start="463" selection-end="463" vertical-scroll-proportion="0.0">
@@ -948,28 +963,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/AIwork/ProcessTextActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="0" selection-start="2061" selection-end="2061" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/txt_reader.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="37" selection-start="451" selection-end="462" vertical-scroll-proportion="-4.2">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/AIwork/debby/MyFileManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="33" selection-start="868" selection-end="913" vertical-scroll-proportion="0.0">
+        <state line="7" column="37" selection-start="451" selection-end="462" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -979,7 +978,28 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="16" selection-start="907" selection-end="907" vertical-scroll-proportion="0.75">
+        <state line="37" column="6" selection-start="852" selection-end="1052" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/AIwork/debby/MyFileManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="8" selection-start="1422" selection-end="1422" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/AIwork/ProcessTextActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="169" column="31" selection-start="4441" selection-end="4441" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/AIwork/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="0" selection-start="1782" selection-end="1782" vertical-scroll-proportion="0.6048387">
           <folding />
         </state>
       </provider>
